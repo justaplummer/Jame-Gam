@@ -8,7 +8,7 @@
 size = Vector2(11, 14)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 2
+collision_layer = 3
 motion_mode = 1
 script = ExtResource("1_f4gk5")
 dagger_scene = ExtResource("2_31c8k")

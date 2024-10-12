@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgxr0ba6g16od"]
+[gd_scene load_steps=7 format=3 uid="uid://cgxr0ba6g16od"]
 
 [ext_resource type="Texture2D" uid="uid://cnahj14di43ap" path="res://Assets/sprite_Enemy.png" id="1_a7t3w"]
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_ddni5"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqtoj"]
 size = Vector2(12, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bs3pn"]
+radius = 91.0
 
 [node name="Enemy" type="RigidBody2D" groups=["enemy"]]
 gravity_scale = 0.0
@@ -28,3 +31,12 @@ theme_override_styles/background = ExtResource("3_uuhqw")
 theme_override_styles/fill = ExtResource("3_iheq1")
 step = 1.0
 show_percentage = false
+
+[node name="Player_Detection_Area" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Detection_Area"]
+shape = SubResource("CircleShape2D_bs3pn")
+
+[connection signal="body_entered" from="Player_Detection_Area" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_exited" from="Player_Detection_Area" to="." method="_on_player_detection_area_body_exited"]
