@@ -21,9 +21,9 @@ texture = ExtResource("1_a7t3w")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -7.0
-offset_top = -15.0
+offset_top = -10.0
 offset_right = 7.0
-offset_bottom = -8.0
+offset_bottom = -7.0
 theme_override_styles/background = ExtResource("3_uuhqw")
 theme_override_styles/fill = ExtResource("3_iheq1")
 step = 1.0

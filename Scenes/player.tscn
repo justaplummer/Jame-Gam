@@ -25,3 +25,9 @@ zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Dagger_Throw_Cooldown" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Dagger_Throw_Cooldown" to="." method="_on_dagger_throw_cooldown_timeout"]
