@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1fmjiurt5nl5"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_nm8rw"]
+[ext_resource type="PackedScene" path="res://Scenes/stopwatch.tscn" id="2_7bgty"]
+[ext_resource type="Script" path="res://Scripts/LootLocker.gd" id="3_12ind"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fhikt"]
+font_size = 33
+
+[node name="HUD" type="Control" groups=["hud"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nm8rw")
+
+[node name="Label_Stopwatch" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.0
+offset_right = 92.0
+offset_bottom = 73.0
+grow_horizontal = 2
+text = "00 : 00 : 000"
+label_settings = SubResource("LabelSettings_fhikt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stopwatch" parent="." instance=ExtResource("2_7bgty")]
+
+[node name="Label_Num_Keys" type="Label" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 91.0
+offset_right = 71.0
+offset_bottom = 114.0
+text = "Test"
+
+[node name="End_Of_Game" type="Node2D" parent="."]
+position = Vector2(577, 73)
+script = ExtResource("3_12ind")
+
+[node name="LEdit_player_name" type="LineEdit" parent="End_Of_Game"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.5
+offset_right = 78.5
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="Button" type="Button" parent="End_Of_Game"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_top = 46.0
+offset_right = 78.0
+offset_bottom = 77.0
+grow_horizontal = 2
+text = "Submit"
+
+[connection signal="pressed" from="End_Of_Game/Button" to="End_Of_Game" method="_on_button_pressed"]

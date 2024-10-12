@@ -1,7 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb0bi0coaee6k"]
+[gd_scene load_steps=5 format=3 uid="uid://bb0bi0coaee6k"]
 
 [ext_resource type="PackedScene" uid="uid://seuu7p0lhlpm" path="res://Scenes/player.tscn" id="1_7apis"]
+[ext_resource type="Script" path="res://Scripts/game_controller.gd" id="1_5302l"]
+[ext_resource type="PackedScene" uid="uid://bap5id501d27i" path="res://Scenes/main_menu.tscn" id="2_k554e"]
+[ext_resource type="PackedScene" uid="uid://d1fmjiurt5nl5" path="res://Scenes/hud.tscn" id="3_p40da"]
 
 [node name="GameController" type="Node"]
+script = ExtResource("1_5302l")
 
 [node name="Player" parent="." instance=ExtResource("1_7apis")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("3_p40da")]
+metadata/_edit_use_anchors_ = true
+
+[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("2_k554e")]
