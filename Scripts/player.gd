@@ -6,7 +6,7 @@ signal update_wallet
 @onready var dagger_throw_cooldown: Timer = $Dagger_Throw_Cooldown
 
 @export var dagger_scene : PackedScene
-const SPEED = 200.0
+const SPEED = 100.0
 var can_throw_dagger = true
 var wallet = 0
 	

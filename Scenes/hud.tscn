@@ -67,11 +67,15 @@ grow_horizontal = 2
 text = "Submit"
 
 [node name="Label_Wallet" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1048.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
 offset_top = 91.0
-offset_right = 1131.0
+offset_right = -37.0
 offset_bottom = 114.0
+grow_horizontal = 0
 text = "wallet: 100"
 
 [connection signal="pressed" from="End_Of_Game/Button" to="End_Of_Game" method="_on_button_pressed"]

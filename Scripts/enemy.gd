@@ -5,7 +5,7 @@ extends RigidBody2D
 
 var curHealth = 0
 var maxHealth = 5
-var speed = 20
+var speed = 10
 var direction = Vector2(100,100)
 var player
 var chase_player = false
