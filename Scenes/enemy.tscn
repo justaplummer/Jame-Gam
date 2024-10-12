@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgxr0ba6g16od"]
+[gd_scene load_steps=6 format=3 uid="uid://cgxr0ba6g16od"]
 
 [ext_resource type="Texture2D" uid="uid://cnahj14di43ap" path="res://Assets/sprite_Enemy.png" id="1_a7t3w"]
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_ddni5"]
+[ext_resource type="StyleBox" uid="uid://b36hkryp68b" path="res://Styles/health bar red.tres" id="3_iheq1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqtoj"]
 size = Vector2(12, 14)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8dxy"]
+bg_color = Color(0.165656, 0.165656, 0.165656, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Enemy" type="RigidBody2D" groups=["enemy"]]
 gravity_scale = 0.0
@@ -16,3 +24,13 @@ shape = SubResource("RectangleShape2D_kqtoj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_a7t3w")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -7.0
+offset_top = -15.0
+offset_right = 7.0
+offset_bottom = -8.0
+theme_override_styles/background = SubResource("StyleBoxFlat_j8dxy")
+theme_override_styles/fill = ExtResource("3_iheq1")
+step = 1.0
+show_percentage = false

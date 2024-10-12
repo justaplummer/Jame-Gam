@@ -4,9 +4,13 @@ extends Node
 @onready var main_menu: Control = $CanvasLayer/MainMenu
 @export var enemy_scene: PackedScene
 
+var hide_menu_on_on_start = true#set to false for normal running
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hud.toggle_timer()
+	if hide_menu_on_on_start:
+		toggle_menu()
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("quit"):
