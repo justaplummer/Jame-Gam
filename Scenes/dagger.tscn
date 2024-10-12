@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://o3y5t43gc5px"]
+
+[ext_resource type="Script" path="res://Scripts/dagger.gd" id="1_gyhfn"]
+[ext_resource type="Texture2D" uid="uid://y7dpafatgfmk" path="res://Assets/Dagger.png" id="1_x0a65"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyl38"]
+size = Vector2(14, 6)
+
+[node name="Dagger" type="Area2D"]
+script = ExtResource("1_gyhfn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.785398
+texture = ExtResource("1_x0a65")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_yyl38")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

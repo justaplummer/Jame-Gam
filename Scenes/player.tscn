@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://seuu7p0lhlpm"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_f4gk5"]
+[ext_resource type="Texture2D" uid="uid://c255ui8222jg" path="res://Assets/sprite_Player.png" id="2_0b54e"]
+[ext_resource type="PackedScene" uid="uid://o3y5t43gc5px" path="res://Scenes/dagger.tscn" id="2_31c8k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gi4py"]
+size = Vector2(11, 14)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_f4gk5")
+dagger_scene = ExtResource("2_31c8k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0b54e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_gi4py")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
