@@ -3,6 +3,7 @@ extends Node
 @onready var hud: Hud = $CanvasLayer/HUD
 @onready var main_menu: Control = $CanvasLayer/MainMenu
 @export var enemy_scene: PackedScene
+@onready var player: CharacterBody2D = $Player
 
 var hide_menu_on_on_start = true#set to false for normal running
 
@@ -27,3 +28,7 @@ func toggle_menu():
 func _on_spawn_enemy_pressed() -> void:
 	var enemy = enemy_scene.instantiate()
 	add_child(enemy)
+
+
+func _on_player_update_wallet() -> void:
+	hud.set_wallet(player.wallet)

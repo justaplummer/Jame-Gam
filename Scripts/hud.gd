@@ -4,9 +4,11 @@ class_name Hud extends Control
 @onready var label_num_keys: Label = $Label_Num_Keys
 @onready var l_edit_player_name: LineEdit = $End_Of_Game/LEdit_player_name
 @onready var button: Button = $End_Of_Game/Button
+@onready var label_wallet: Label = $Label_Wallet
 
 func _ready() -> void:
 	set_num_keys(0)
+	set_wallet(0)
 
 func _process(_delta: float) -> void:
 	label_stopwatch.text = stopwatch.time_to_string()
@@ -21,3 +23,6 @@ func game_over():
 	
 func toggle_timer():
 	stopwatch.stopped = !stopwatch.stopped
+
+func set_wallet(number):
+	label_wallet.text = "Wallet: " + str(number)

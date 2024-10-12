@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 @onready var progress_bar: ProgressBar = $ProgressBar
+@export var coin_scene : PackedScene
 
 var curHealth = 0
 var maxHealth = 5
@@ -23,12 +24,14 @@ func _physics_process(delta: float) -> void:
 
 func on_hit():
 	curHealth -= 1
-	print("enemy health = ", curHealth)
 	update_progress_bar()
 	if curHealth <= 0:
 		enemy_killed()
 		
 func enemy_killed():
+	var coin = coin_scene.instantiate()
+	coin.position = position
+	get_parent().add_child(coin)
 	queue_free()
 	
 func update_progress_bar():

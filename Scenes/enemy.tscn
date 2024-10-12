@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgxr0ba6g16od"]
+[gd_scene load_steps=8 format=3 uid="uid://cgxr0ba6g16od"]
 
 [ext_resource type="Texture2D" uid="uid://cnahj14di43ap" path="res://Assets/sprite_Enemy.png" id="1_a7t3w"]
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_ddni5"]
+[ext_resource type="PackedScene" uid="uid://b34dox5koxxl0" path="res://Scenes/coin.tscn" id="2_b0liq"]
 [ext_resource type="StyleBox" uid="uid://b36hkryp68b" path="res://Styles/health bar red.tres" id="3_iheq1"]
 [ext_resource type="StyleBox" uid="uid://dm4jg5s16am7j" path="res://Scenes/health bar gray.tres" id="3_uuhqw"]
 
@@ -14,6 +15,7 @@ radius = 91.0
 [node name="Enemy" type="RigidBody2D" groups=["enemy"]]
 gravity_scale = 0.0
 script = ExtResource("1_ddni5")
+coin_scene = ExtResource("2_b0liq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

@@ -24,4 +24,5 @@ offset_right = 8.0
 offset_bottom = 8.0
 text = "Spawn Enemy"
 
+[connection signal="update_wallet" from="Player" to="." method="_on_player_update_wallet"]
 [connection signal="pressed" from="CanvasLayer/Spawn_Enemy" to="." method="_on_spawn_enemy_pressed"]
