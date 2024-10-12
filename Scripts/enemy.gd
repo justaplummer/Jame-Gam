@@ -26,7 +26,7 @@ func on_hit():
 	curHealth -= 1
 	update_progress_bar()
 	if curHealth <= 0:
-		enemy_killed()
+		call_deferred("enemy_killed")
 		
 func enemy_killed():
 	var coin = coin_scene.instantiate()
