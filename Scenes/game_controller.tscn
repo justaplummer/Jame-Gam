@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb0bi0coaee6k"]
+[gd_scene load_steps=6 format=3 uid="uid://bb0bi0coaee6k"]
 
 [ext_resource type="PackedScene" uid="uid://seuu7p0lhlpm" path="res://Scenes/player.tscn" id="1_7apis"]
 [ext_resource type="Script" path="res://Scripts/game_controller.gd" id="1_5302l"]
+[ext_resource type="PackedScene" uid="uid://cgxr0ba6g16od" path="res://Scenes/enemy.tscn" id="2_cinbi"]
 [ext_resource type="PackedScene" uid="uid://bap5id501d27i" path="res://Scenes/main_menu.tscn" id="2_k554e"]
 [ext_resource type="PackedScene" uid="uid://d1fmjiurt5nl5" path="res://Scenes/hud.tscn" id="3_p40da"]
 
 [node name="GameController" type="Node"]
 script = ExtResource("1_5302l")
+enemy_scene = ExtResource("2_cinbi")
 
 [node name="Player" parent="." instance=ExtResource("1_7apis")]
 
@@ -16,3 +18,10 @@ script = ExtResource("1_5302l")
 metadata/_edit_use_anchors_ = true
 
 [node name="MainMenu" parent="CanvasLayer" instance=ExtResource("2_k554e")]
+
+[node name="Spawn_Enemy" type="Button" parent="CanvasLayer"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Spawn Enemy"
+
+[connection signal="pressed" from="CanvasLayer/Spawn_Enemy" to="." method="_on_spawn_enemy_pressed"]
