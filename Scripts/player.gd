@@ -6,13 +6,31 @@ signal update_wallet
 @onready var dagger_throw_cooldown: Timer = $Dagger_Throw_Cooldown
 
 @export var dagger_scene : PackedScene
+var ward = null
 const SPEED = 100.0
 var can_throw_dagger = true
 var wallet = 0
+#we will turn these true when we enter the area near the object
+var can_interact_with_ward = false
+var can_interact_with_shop = false
+#we will turn these true when the player has picked them up
+var has_ruby = false
+var has_emer = false
+var has_saph = false
+#these are power ups
+var has_bag = false
 	
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_direction * SPEED
+
+func _unhandled_input(_event: InputEvent) -> void:
+	if can_interact_with_ward:
+		if Input.is_action_just_pressed("interact"):
+			ward.update_ward(has_ruby,has_saph,has_emer)
+	if can_interact_with_shop:
+		if Input.is_action_just_pressed("interact"):
+			pass
 
 func _physics_process(_delta):
 	get_input()
