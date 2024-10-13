@@ -33,6 +33,7 @@ vertical_alignment = 1
 [node name="Stopwatch" parent="." instance=ExtResource("2_7bgty")]
 
 [node name="Label_Num_Keys" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 31.0
 offset_top = 91.0
@@ -65,6 +66,20 @@ offset_right = 78.0
 offset_bottom = 77.0
 grow_horizontal = 2
 text = "Submit"
+
+[node name="Label" type="Label" parent="End_Of_Game"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 83.0
+offset_right = 65.0
+offset_bottom = 132.0
+grow_horizontal = 2
+text = "Enter Name 
+For Leaderboard"
+horizontal_alignment = 1
 
 [node name="Label_Wallet" type="Label" parent="."]
 layout_mode = 1

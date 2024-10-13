@@ -20,6 +20,7 @@ func game_over():
 	stopwatch.stopped = true
 	l_edit_player_name.visible = true
 	button.visible = true
+	$End_Of_Game/Label.visible = true
 	
 func toggle_timer():
 	stopwatch.stopped = !stopwatch.stopped

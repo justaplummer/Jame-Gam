@@ -22,6 +22,7 @@ var has_saph = false
 #these are power ups
 var has_bag = false
 var has_potion = false
+var game_over = false
 	
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -55,6 +56,7 @@ func subtract_funds(amount):
 	update_wallet.emit()
 
 func _physics_process(_delta):
+	if game_over: return
 	get_input()
 	shoot_projectile()
 	move_and_slide()

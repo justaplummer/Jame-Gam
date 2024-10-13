@@ -97,4 +97,9 @@ func _on_shop_insufficient_funds() -> void:
 
 
 func _on_ward_game_over() -> void:
+	player.game_over = true
 	hud.game_over()
+
+
+func _on_main_menu_toggle_leaderboard() -> void:
+	$CanvasLayer/Leaderboard.visible = !$CanvasLayer/Leaderboard.visible

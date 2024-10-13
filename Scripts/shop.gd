@@ -1,8 +1,8 @@
 extends RigidBody2D
 
 var player = null
-var bag_cost = 5
-var dagger_potion_cost = 1
+var bag_cost = 20
+var dagger_potion_cost = 5
 
 signal insufficient_funds
 

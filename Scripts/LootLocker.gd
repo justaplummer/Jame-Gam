@@ -4,9 +4,9 @@ extends Node
 
 # Use this game API key if you want to test with a functioning leaderboard
 # "987dbd0b9e5eb3749072acc47a210996eea9feb0"
-var game_API_key = "dev_51b4440adadd4f59a3d19412e1f2462c"
+var game_API_key = "dev_090be9c0b4d44cddaa0b4ba51bec69cb"
 var development_mode = true
-var leaderboard_key = "24721"
+var leaderboard_key = "24924"
 var session_token = ""
 var score = 0
 
