@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp38s6l1ssbap"]
+
+[ext_resource type="Script" path="res://Scripts/gem.gd" id="1_jnk3v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j7mm0"]
+
+[node name="Gem" type="Area2D"]
+script = ExtResource("1_jnk3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j7mm0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

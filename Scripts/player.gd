@@ -7,6 +7,7 @@ signal update_wallet
 
 @export var dagger_scene : PackedScene
 var ward = null
+var shop = null
 const SPEED = 100.0
 var can_throw_dagger = true
 var wallet = 0
@@ -19,6 +20,7 @@ var has_emer = false
 var has_saph = false
 #these are power ups
 var has_bag = false
+var has_potion = false
 	
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -29,8 +31,25 @@ func _unhandled_input(_event: InputEvent) -> void:
 		if Input.is_action_just_pressed("interact"):
 			ward.update_ward(has_ruby,has_saph,has_emer)
 	if can_interact_with_shop:
-		if Input.is_action_just_pressed("interact"):
-			pass
+		if Input.is_action_just_pressed("buy_bag"):
+			shop.buy_bag()
+		if Input.is_action_just_pressed("buy_dagger_potion"):
+			shop.buy_potion()
+
+func add_gem(name):
+	if name == "Ruby":
+		has_ruby = true
+	if name == "Emer":
+		has_emer = true
+	if name == "Saph":
+		has_saph = true
+
+func check_funds():
+	return wallet
+	
+func subtract_funds(amount):
+	wallet -= amount
+	update_wallet.emit()
 
 func _physics_process(_delta):
 	get_input()
@@ -42,7 +61,10 @@ func shoot_projectile():
 	if Input.is_action_just_pressed("attack") || Input.is_action_just_pressed("ui_accept"):
 		add_dagger()
 		can_throw_dagger = false
-		dagger_throw_cooldown.start(0.75)
+		if has_potion:
+			dagger_throw_cooldown.start(0.75/2)
+		else:
+			dagger_throw_cooldown.start(0.75)
 		
 func add_dagger():
 	var dagger = dagger_scene.instantiate()

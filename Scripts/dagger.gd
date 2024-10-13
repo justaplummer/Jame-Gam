@@ -20,11 +20,14 @@ func destroy():
 
 
 func _on_area_entered(area: Area2D) -> void:
+	print(area)
 	if area.is_in_group("player"):
 		pass
 	elif area.is_in_group("enemy"):
 		area.on_hit()
 		destroy()
+	elif area.is_in_group("ward"):
+		pass
 	else:
 		destroy()
 

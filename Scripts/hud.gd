@@ -26,3 +26,11 @@ func toggle_timer():
 
 func set_wallet(number):
 	label_wallet.text = "Wallet: " + str(number)
+
+func set_label_need_bag():
+	$label_need_bag.visible = true
+	$hide_need_bag.start(5)
+
+
+func _on_hide_need_bag_timeout() -> void:
+	$label_need_bag.visible = false

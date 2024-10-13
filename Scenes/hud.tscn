@@ -78,4 +78,24 @@ offset_bottom = 114.0
 grow_horizontal = 0
 text = "wallet: 100"
 
+[node name="label_need_bag" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -227.0
+offset_top = 114.0
+offset_right = -1.0
+offset_bottom = 215.0
+grow_horizontal = 0
+text = "Due to the magical nature
+of the gems you must first
+purchase a bag so you can
+carry them to the ward stone"
+
+[node name="hide_need_bag" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="pressed" from="End_Of_Game/Button" to="End_Of_Game" method="_on_button_pressed"]
+[connection signal="timeout" from="hide_need_bag" to="." method="_on_hide_need_bag_timeout"]

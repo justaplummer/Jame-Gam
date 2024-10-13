@@ -24,7 +24,7 @@ texture = ExtResource("1_cm8je")
 position = Vector2(1, -13)
 shape = SubResource("RectangleShape2D_oknuj")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["ward"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_arhnv")
@@ -39,7 +39,7 @@ visible = false
 position = Vector2(-2, -11)
 texture = ExtResource("4_qkecu")
 
-[node name="emer" type="Sprite2D" parent="."]
+[node name="emer" type="Sprite2D" parent="." groups=["ward"]]
 visible = false
 position = Vector2(8, -11)
 texture = ExtResource("5_i7h8p")

@@ -32,3 +32,23 @@ func _on_spawn_enemy_pressed() -> void:
 
 func _on_player_update_wallet() -> void:
 	hud.set_wallet(player.wallet)
+
+func display_no_bag_warning():
+	hud.set_label_need_bag()
+
+func _on_gem_emer_no_bag_notification() -> void:
+	display_no_bag_warning()
+
+func _on_gem_saph_no_bag_notification() -> void:
+	display_no_bag_warning()
+
+func _on_gem_ruby_no_bag_notification() -> void:
+	display_no_bag_warning()
+
+
+func _on_spawn_zombies_at_ward_timeout() -> void:
+	var enemy = enemy_scene.instantiate()
+	enemy.start_position = $Zombie_Spawn_Ward.position
+	enemy.position = $Zombie_Spawn_Ward.position
+	add_child(enemy)
+	$Zombie_Spawn_Ward/Spawn_Zombies_At_Ward.start(randf_range(5,10))

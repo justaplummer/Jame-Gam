@@ -40,5 +40,9 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Detection_Area"]
 shape = SubResource("CircleShape2D_bs3pn")
 
+[node name="Update_Position" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="Player_Detection_Area" to="." method="_on_player_detection_area_body_entered"]
 [connection signal="body_exited" from="Player_Detection_Area" to="." method="_on_player_detection_area_body_exited"]
+[connection signal="timeout" from="Update_Position" to="." method="_on_update_position_timeout"]
