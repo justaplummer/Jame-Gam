@@ -10,7 +10,7 @@
 size = Vector2(12, 14)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bs3pn"]
-radius = 91.0
+radius = 277.26
 
 [node name="Enemy" type="RigidBody2D" groups=["enemy"]]
 gravity_scale = 0.0

@@ -34,3 +34,11 @@ func set_label_need_bag():
 
 func _on_hide_need_bag_timeout() -> void:
 	$label_need_bag.visible = false
+	
+func set_low_funds_warning():
+	$label_low_funds.visible = true
+	$hide_low_funds.start(5)
+
+
+func _on_hide_low_funds_timeout() -> void:
+	$label_low_funds.visible = false

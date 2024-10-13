@@ -4,6 +4,8 @@ var player = null
 var bag_cost = 5
 var dagger_potion_cost = 1
 
+signal insufficient_funds
+
 func buy_bag():
 	if player:
 		if player.check_funds() >= bag_cost:
@@ -11,7 +13,7 @@ func buy_bag():
 			player.has_bag = true
 			print("player bought a bag")
 		else:
-			print("player has insufficient funds")
+			insufficient_funds.emit()
 
 func buy_potion():
 	if player:
@@ -20,7 +22,7 @@ func buy_potion():
 			player.has_potion = true
 			print("player bought a dagger potion")
 		else:
-			print("player has insufficient dagger potion")
+			insufficient_funds.emit()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

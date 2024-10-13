@@ -97,5 +97,22 @@ carry them to the ward stone"
 [node name="hide_need_bag" type="Timer" parent="."]
 one_shot = true
 
+[node name="label_low_funds" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -292.0
+offset_top = 115.0
+offset_bottom = 164.0
+grow_horizontal = 0
+text = "You have insuffienct funds to buy
+this item. Kill zombies to collect coins."
+
+[node name="hide_low_funds" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="pressed" from="End_Of_Game/Button" to="End_Of_Game" method="_on_button_pressed"]
 [connection signal="timeout" from="hide_need_bag" to="." method="_on_hide_need_bag_timeout"]
+[connection signal="timeout" from="hide_low_funds" to="." method="_on_hide_low_funds_timeout"]

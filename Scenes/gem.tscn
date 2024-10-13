@@ -4,7 +4,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j7mm0"]
 
-[node name="Gem" type="Area2D"]
+[node name="Gem" type="Area2D" groups=["gem"]]
 script = ExtResource("1_jnk3v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

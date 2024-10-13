@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal update_wallet
 
+
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var dagger_throw_cooldown: Timer = $Dagger_Throw_Cooldown
 
@@ -49,6 +50,8 @@ func check_funds():
 	
 func subtract_funds(amount):
 	wallet -= amount
+	if wallet < 0:
+		wallet = 0
 	update_wallet.emit()
 
 func _physics_process(_delta):
@@ -79,3 +82,8 @@ func add_to_wallet(inc):
 	wallet += inc
 	update_wallet.emit()
 	#hud.set_wallet(wallet)
+
+
+func _on_detect_enemy_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemy"):
+		subtract_funds(round(randf_range(1,3)))

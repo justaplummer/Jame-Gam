@@ -27,8 +27,7 @@ func _physics_process(delta: float) -> void:
 			position = position.move_toward(direction,speed * delta)
 
 func set_direction():
-	direction.x = start_position.x + randf_range(-50,50)
-	direction.y = start_position.y + randf_range(-50,50)
+	direction = Vector2(randf_range(-50,50),randf_range(-50,50))
 
 func on_hit():
 	curHealth -= 1
